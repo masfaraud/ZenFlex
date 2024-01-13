@@ -20,18 +20,31 @@
                 language: 'fr'
             });
 	   //$('#calendar').evoCalendar('setTheme', 'Royal Navy');
-	   $.getJSON("data.json", function(data){
+	   $.getJSON("https://masfaraud.github.io/ZenFlex/data.json", function(data){
             console.log(data);
 		
-            $.each(data, function( index, value ){
+            $.each(data['sobriete'], function( index, value ){
                 console.log(index, value);  
                 $('#calendar').evoCalendar('addCalendarEvent', {
-             			id: index,
+             			id: index.toString(),
              			name: 'Jour Sobriété',
-             			description: 'Lorem ipsum dolor sit..',
+             			description: 'Jour sobriété Zen Flex',
              			date: value,
              			type: 'event',
-                        color: '#63d867',
+                        color: '#e71f1f',
+
+                        });
+            });
+
+            $.each(data['bonus'], function( index, value ){
+                console.log(index, value);  
+                $('#calendar').evoCalendar('addCalendarEvent', {
+             			id: "bonus"+index.toString(),
+             			name: 'Jour bonus',
+             			description: 'Jour bonus Zen Flex',
+             			date: value,
+             			type: 'event',
+                        color: '#1fe76e',
 
                         });
             });
