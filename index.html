@@ -21,26 +21,27 @@
             });
 	   //$('#calendar').evoCalendar('setTheme', 'Royal Navy');
 	   $.getJSON("data.json", function(data){
-            	console.log(data);
+            console.log(data);
 		
-	   $.each(data, function( index, value ){
-		$('#calendar').evoCalendar('addCalendarEvent', {
-     			id: index,
-     			name: 'Jour Sobriété',
-     			description: 'Lorem ipsum dolor sit..',
-     			date: value,
-     			type: 'event',
-                color: '#63d867',
+            $.each(data, function( index, value ){
+                console.log(index, value);
+                $('#calendar').evoCalendar('addCalendarEvent', {
+             			id: index,
+             			name: 'Jour Sobriété',
+             			description: 'Lorem ipsum dolor sit..',
+             			date: value,
+             			type: 'event',
+                        color: '#63d867',
 
-				});
-                
+                        });
+            }
 	
            }).fail(function(){
             	console.log("An error has occurred.");
            });
 	   
 	   });
-        })
+
         </script>
 
     </body>
