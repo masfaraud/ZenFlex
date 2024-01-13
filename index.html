@@ -27,11 +27,13 @@
             //$('#calendar').evoCalendar('setTheme', 'Royal Navy');
             $.getJSON("https://masfaraud.github.io/ZenFlex/data.json", function (data) {
 
+                console.log(data)
                 var now = new Date();
                 const options = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
                 for (var d = new Date(2023, 8, 1); d <= now; d.setDate(d.getDate() + 1)) {
                     var formated_date = d.toLocaleDateString('en', options)
-                    if (data['sobriete'].includes(d)) {
+                    console.log(formated_date, data['sobriete'].includes(formated_date))
+                    if (data['sobriete'].includes(formated_date)) {
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "sobriete" + formated_date,
                             name: 'Jour Sobriété',
@@ -42,7 +44,7 @@
                         });
                     }
 
-                    else if (data['bonus'].includes(d)) {
+                    else if (data['bonus'].includes(formated_date)) {
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "sobriete" + formated_date,
                             name: 'Jour Bonus',
