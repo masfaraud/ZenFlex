@@ -30,7 +30,35 @@
 
     <div class="container">
         <section class="section">
-            <h1 class="title">Calendrier Zen Flex</h1>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <a class="navbar-item is-active" href="https://masfaraud.github.io/ZenFlex">
+                    <img src="icon.png" height="28">
+                  </a>
+              
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+              
+                <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                    <a class="navbar-item">
+                      Calendrier Zen Flex
+                    </a>
+              
+                  </div>
+              
+                  <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="navbar-item" href="https://github.com/masfaraud/ZenFlex/blob/master/README.md">A propos</a>
+                        </div>
+                  </div>
+                </div>
+              </nav>
+            <h1 class="title">Calendrier ZenFlex</h1>
             <div class="columns">
                 <div class="column is-one-quarter">
                     <div class="day-card card" id="yesterday">
@@ -152,7 +180,8 @@
                 eventHeaderFormat: 'D d MM yyyy'
             });
 
-            const options = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
+            const format_en = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
+            const format_fr = { weekday: 'long', year: undefined, month: 'long', day: 'numeric' };
 
 
             $.getJSON("https://masfaraud.github.io/ZenFlex/data.json", function (data) {
@@ -183,7 +212,7 @@
                         return "eco";
                     }
 
-                    var formated_date = day.toLocaleDateString('en', options);
+                    var formated_date = day.toLocaleDateString('en', format_en);
                     if (data['sobriete'].includes(formated_date)) {
                         return "sobriete"
                     }
@@ -212,7 +241,7 @@
                     icon.removeClass("fa-spinner");
                     icon.removeClass("fa-pulse");
                     icon.addClass(icons[day_type]);
-                    card.find("p.date").text(day.toLocaleDateString('en', options));
+                    card.find("p.date").text(day.toLocaleDateString('fr', format_fr));
                     card.find("p.type").text(clean_types[day_type]);
 
                 }
@@ -224,7 +253,7 @@
 
                 for (var day = new Date(2023, 8, 1); day <= stop; day.setDate(day.getDate() + 1)) {
                     day_type = dayType(day)
-                    var formated_date = day.toLocaleDateString('en', options);
+                    var formated_date = day.toLocaleDateString('en', format_en);
                     if (day_type == 'sobriete') {
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "sobriete" + formated_date,
