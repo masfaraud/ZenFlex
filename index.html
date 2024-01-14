@@ -53,14 +53,58 @@
                 firstDayOfWeek: 1,
                 eventHeaderFormat: 'D d MM yyyy'
             });
-            //$('#calendar').evoCalendar('setTheme', 'Royal Navy');
+
+            const options = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
+                
+
             $.getJSON("https://masfaraud.github.io/ZenFlex/data.json", function (data) {
 
                 var now = new Date();
-                const options = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
-                for (var d = new Date(2023, 8, 1); d <= now; d.setDate(d.getDate() + 1)) {
-                    var formated_date = d.toLocaleDateString('en', options)
-                    if (data['sobriete'].includes(formated_date)) {
+                var tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                var stop = new Date();
+                stop.setDate(stop.getDate() + 365);
+
+
+                function dayType(day){
+                    if (day.getDay()==6 || day.getDay()==0){
+                        return "eco"
+                    }
+                    var month = day.getMonth();
+                    if (month>3 && month < 9){
+                        return "eco";
+                    }
+                    if (month==3 && day.getDate()>15){
+                        return "eco";
+                    }
+                    if (month==9 && day.getDate()<=15){
+                        return "eco";
+                    }
+
+                    var formated_date = day.toLocaleDateString('en', options);
+                    if (data['sobriete'].includes(formated_date)){
+                        return "sobriete"
+                    }
+                    if (data['bonus'].includes(formated_date)){
+                        return "bonus"
+                    }
+
+                    // If in the past, should be eco
+                    if (day <= now){
+                        return "eco"
+                    }
+                    // If day is tomorrow: before 5pm tomorrow is undecided, after it is eco
+                    if (day == tomorrow && now.getHours() >= 17){
+                        return "eco"
+                    }
+                    return "undecided"
+                }
+
+
+                for (var day = new Date(2023, 8, 1); day <= stop; day.setDate(day.getDate() + 1)) {
+                    day_type = dayType(day)
+                    var formated_date = day.toLocaleDateString('en', options);
+                    if (day_type == 'sobriete') {
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "sobriete" + formated_date,
                             name: 'Jour Sobriété',
@@ -71,7 +115,7 @@
                         });
                     }
 
-                    else if (data['bonus'].includes(formated_date)) {
+                    else if (day_type == 'bonus') {
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "sobriete" + formated_date,
                             name: 'Jour Bonus',
@@ -82,7 +126,7 @@
                         });
                     }
 
-                    else {
+                    else if (day_type == 'eco'){
 
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "eco" + formated_date,
@@ -93,24 +137,9 @@
                             color: '#1fe76e',
                         });
                     }
-                };
 
-                var stop = new Date();
-                stop.setDate(stop.getDate() + 365);
-                var tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() + 1);
+                    else if (day_type == 'undecided'){
 
-                for (var d = tomorrow; d <= stop; d.setDate(d.getDate() + 1)) {
-                    var formated_date = d.toLocaleDateString('en', options);
-                    var month = d.getMonth();
-                    var undef = true; 
-                    if (month>3 && month < 9){
-                        undef = false;
-                    }
-                    else if (d.getDay()==6 || d.getDay()==0){
-                        undef = false
-                    }
-                    if (undef){
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "indef" + formated_date,
                             name: 'Jour indéfini',
@@ -119,23 +148,10 @@
                             type: 'event',
                             color: '#eee',
                         });
-
-                    }
-                    else{
-                        $('#calendar').evoCalendar('addCalendarEvent', {
-                            id: "eco" + formated_date,
-                            name: 'Jour éco',
-                            description: 'Jour éco',
-                            date: formated_date,
-                            type: 'event',
-                            color: '#1fe76e',
-                        });
-
                     }
 
-                }
+                };
 
-                
 
         }).fail(function () {
             console.log("An error has occurred.");
