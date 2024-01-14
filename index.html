@@ -5,17 +5,21 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2218Z2X7B"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-S2218Z2X7B');
+        gtag('config', 'G-S2218Z2X7B');
     </script>
 
     <title>Calendrier Zen Flex</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/css/evo-calendar.min.css">
-    <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="theme.css">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,20 +27,114 @@
 </head>
 
 <body>
-    <section class="section">
-        <div class="container">
+
+    <div class="container">
+        <section class="section">
             <h1 class="title">Calendrier Zen Flex</h1>
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <div class="day-card card" id="yesterday">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <span class="icon is-large">
+                                            <i class="fas fa-2x fa-spinner fa-pulse"></i>
+                                        </span>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Hier</p>
+                                    <p class="subtitle is-6 date"></p>
+                                    <p class="subtitle is-6 type"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="day-card card" id="today">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <span class="icon is-large">
+                                            <i class="fas fa-2x fa-spinner fa-pulse"></i>
+                                        </span>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Aujourd'hui</p>
+                                    <p class="subtitle is-6 date"></p>
+                                    <p class="subtitle is-6 type"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="day-card card" id="tomorrow">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <span class="icon is-large">
+                                            <i class="fas fa-2x fa-spinner fa-pulse"></i>
+                                        </span>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Demain</p>
+                                    <p class="subtitle is-6 date"></p>
+                                    <p class="subtitle is-6 type"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="day-card card" id="after-tomorrow">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <span class="icon is-large">
+                                            <i class="fas fa-2x fa-spinner fa-pulse"></i>
+                                        </span>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Après-demain</p>
+                                    <p class="subtitle is-6 date"></p>
+                                    <p class="subtitle is-6 type"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
             <div id="calendar"></div>
-        </div>
-    </section>
+        </section>
+    </div>
     <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Zen Flex Calendar</strong> by <a href="https://github.com/masfaraud">Steven Masfaraud</a>. Les données sont fournies sans garantie.
-      <a href="https://github.com/masfaraud/ZenFlex">Source github</a>.
-    </p>
-  </div>
-</footer>
+        <div class="content has-text-centered">
+            <p>
+                <strong>Zen Flex Calendar</strong> by <a href="https://github.com/masfaraud">Steven Masfaraud</a>. Les
+                données sont fournies sans garantie.
+                <a href="https://github.com/masfaraud/ZenFlex">Source github</a>.
+            </p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -55,7 +153,7 @@
             });
 
             const options = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
-                
+
 
             $.getJSON("https://masfaraud.github.io/ZenFlex/data.json", function (data) {
 
@@ -64,42 +162,65 @@
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 var stop = new Date();
                 stop.setDate(stop.getDate() + 365);
+                var yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                var after_tomorrow = new Date();
+                after_tomorrow.setDate(after_tomorrow.getDate() + 2);
 
 
-                function dayType(day){
-                    if (day.getDay()==6 || day.getDay()==0){
+                function dayType(day) {
+                    if (day.getDay() == 6 || day.getDay() == 0) {
                         return "eco"
                     }
                     var month = day.getMonth();
-                    if (month>3 && month < 9){
+                    if (month > 3 && month < 9) {
                         return "eco";
                     }
-                    if (month==3 && day.getDate()>15){
+                    if (month == 3 && day.getDate() > 15) {
                         return "eco";
                     }
-                    if (month==9 && day.getDate()<=15){
+                    if (month == 9 && day.getDate() <= 15) {
                         return "eco";
                     }
 
                     var formated_date = day.toLocaleDateString('en', options);
-                    if (data['sobriete'].includes(formated_date)){
+                    if (data['sobriete'].includes(formated_date)) {
                         return "sobriete"
                     }
-                    if (data['bonus'].includes(formated_date)){
+                    if (data['bonus'].includes(formated_date)) {
                         return "bonus"
                     }
 
                     // If in the past, should be eco
-                    if (day <= now){
+                    if (day <= now) {
                         return "eco"
                     }
                     // If day is tomorrow: before 5pm tomorrow is undecided, after it is eco
-                    if (day == tomorrow && now.getHours() >= 17){
+                    if (day == tomorrow && now.getHours() >= 17) {
                         return "eco"
                     }
                     return "undecided"
                 }
 
+                const icons = { "sobriete": "fa-piggy-bank", "eco": "fa-bolt", "bonus": "fa-gift", "undecided": "fa-question" }
+                const clean_types = { "sobriete": "Jour sobriété", "eco": "Jour éco", "bonus": "Jour bonus", "undecided": "Jour non défini" }
+                function updateCard(card_id, day) {
+                    day_type = dayType(day);
+                    card = $(card_id);
+                    card.addClass(day_type);
+                    icon = card.find("i");
+                    icon.removeClass("fa-spinner");
+                    icon.removeClass("fa-pulse");
+                    icon.addClass(icons[day_type]);
+                    card.find("p.date").text(day.toLocaleDateString('en', options));
+                    card.find("p.type").text(clean_types[day_type]);
+
+                }
+
+                updateCard("#yesterday", yesterday)
+                updateCard("#today", now)
+                updateCard("#tomorrow", tomorrow)
+                updateCard("#after-tomorrow", after_tomorrow)
 
                 for (var day = new Date(2023, 8, 1); day <= stop; day.setDate(day.getDate() + 1)) {
                     day_type = dayType(day)
@@ -126,7 +247,7 @@
                         });
                     }
 
-                    else if (day_type == 'eco'){
+                    else if (day_type == 'eco') {
 
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "eco" + formated_date,
@@ -138,7 +259,7 @@
                         });
                     }
 
-                    else if (day_type == 'undecided'){
+                    else if (day_type == 'undecided') {
 
                         $('#calendar').evoCalendar('addCalendarEvent', {
                             id: "indef" + formated_date,
@@ -153,10 +274,10 @@
                 };
 
 
-        }).fail(function () {
-            console.log("An error has occurred.");
+            }).fail(function () {
+                console.log("An error has occurred.");
+            });
         });
-    });
 
     </script>
 
