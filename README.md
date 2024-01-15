@@ -6,10 +6,10 @@ Zen Flex est un abonnement à prix variable d'électricité d'EDF: https://parti
 Il existe 3 types de jours qui font varier le prix de l'électricité: sobriété, éco et bonus.
 Un type indéfini est rajouté car EDF prévient la veille pour le lendemain si le jour peut être un jour sobriété.
 
-## Pourquoi cet app?
+## Pourquoi cette application?
 
-EDF ne fournit pas la donnée de manière ouverte, uniquement via un calendrier très mal fait sur son application smartphone.
-Cette app cherche à mettre la donnée à disposition le plus facilement possible pour des automatisations domotique par exemple.
+EDF ne fournit pas la donnée de manière ouverte, uniquement via un calendrier très mal fait sur son application smartphone accessible uniquement aux abonnés.
+Cette application cherche à mettre la donnée à disposition le plus facilement possible pour des automatisations domotique par exemple.
 
 
 ## Sous le capot
