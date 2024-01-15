@@ -21,6 +21,9 @@
     border-bottom: 5px solid grey;
 }
 
+section.section{
+    padding-top: 10px;
+}
 
 /*!
  * Evo Calendar - Simple and Modern-looking Event Calendar Plugin

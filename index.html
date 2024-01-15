@@ -25,10 +25,10 @@
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -37,34 +37,22 @@
 
     <div class="container">
         <section class="section">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <a class="navbar-item is-active" href="https://masfaraud.github.io/ZenFlex">
-                    <img src="apple-touch-icon.png" height="28">
-                  </a>
-              
-                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item">
-                      Calendrier Zen Flex
-                    </a>
-              
-                  </div>
-              
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                        <a class="navbar-item" href="https://github.com/masfaraud/ZenFlex/blob/master/README.md">A propos</a>
-                        </div>
-                  </div>
-                </div>
-              </nav>
+
+
+            <div class="tabs  is-centered">
+                <ul>
+                    <li class="is-active"><a>
+                            <span class="icon is-small"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span>
+                            <span>Calendrier Zen Flex</span></a></li>
+                    <li><a href="https://github.com/masfaraud/ZenFlex/blob/master/ROADMAP.md" target="_blank">
+                        <span class="icon is-small"><i class="fa fa-road" aria-hidden="true"></i></span>
+                        <span>A venir</span></a></li>
+                    <li><a href="https://github.com/masfaraud/ZenFlex/blob/master/README.md" target="_blank">
+                        <span class="icon is-small"><i class="fas fa-book" aria-hidden="true"></i></span>
+                        <span>A propos</span></a>
+                    <li>
+                </ul>
+            </div>
             <h1 class="title">Calendrier ZenFlex</h1>
             <div class="columns">
                 <div class="column is-one-quarter">
@@ -164,9 +152,10 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>Calendrier Zen Flex</strong> par <a href="https://github.com/masfaraud">Steven Masfaraud</a>. Les
+                <strong>Calendrier Zen Flex</strong> par <a href="https://github.com/masfaraud">Steven Masfaraud</a>.
+                Les
                 données sont fournies sans garantie.
-                <a href="https://github.com/masfaraud/ZenFlex">Source github</a>.
+                <a href="https://github.com/masfaraud/ZenFlex" target="_blank">Source github</a>.
             </p>
         </div>
     </footer>
